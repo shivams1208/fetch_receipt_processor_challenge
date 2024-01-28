@@ -90,7 +90,7 @@ Following are `curl` commands for running the endpoints. Here, replace `localhos
       1. Here `{"key":"value"}` is receipt JSON.
       2. Example:
   ```
-http://localhost:5001/receipts/process -H "Content-Type: application/json" -d '{
+curl -X POST http://localhost:5001/receipts/process -H "Content-Type: application/json" -d '{
   "retailer": "Target",
   "purchaseDate": "2022-01-01",
   "purchaseTime": "13:01",
