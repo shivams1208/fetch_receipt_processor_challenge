@@ -64,7 +64,7 @@ The Receipt Processor is a package designed to handle the processing and analysi
 ```bash
 git clone https://github.com/shivams1208/fetch_receipt_processor_challenge.git
 
-cd fetch_rewards_SRE_take_home-main
+cd fetch_receipt_processor_challenge
 ```
 
 ## Usage
@@ -88,6 +88,33 @@ Following are `curl` commands for running the endpoints. Here, replace `localhos
 
    1. `curl -X POST http://localhost:5001/receipts/process -H "Content-Type: application/json" -d '{"key":"value"}'`
       1. Here `{"key":"value"}` is receipt JSON.
+      2. Example:
+  ```
+http://localhost:5001/receipts/process -H "Content-Type: application/json" -d '{
+  "retailer": "Target",
+  "purchaseDate": "2022-01-01",
+  "purchaseTime": "13:01",
+  "items": [
+    {
+      "shortDescription": "Mountain Dew 12PK",
+      "price": "6.49"
+    },{
+      "shortDescription": "Emils Cheese Pizza",
+      "price": "12.25"
+    },{
+      "shortDescription": "Knorr Creamy Chicken",
+      "price": "1.26"
+    },{
+      "shortDescription": "Doritos Nacho Cheese",
+      "price": "3.35"
+    },{
+      "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
+      "price": "12.00"
+    }
+  ],
+  "total": "35.35"
+}'
+```
    2. `curl http://localhost:5001/receipts/<receipt_id>/points`
       1. Here `<receipt_id>` is a variable part of URL and stands for ID of a receipt whose points needs to be calculated.
 
